@@ -1,0 +1,49 @@
+# .understandignore — 从分析中排除的文件/目录模式
+# 语法：与 .gitignore 相同（glob、# 注释、! 否定、尾随 / 表示目录）
+# 以下行为建议 — 取消注释以激活。
+# 使用 ! 前缀强制包含默认排除的项。
+#
+# 内置默认项（始终排除，除非被否定）：
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, 等等。
+#
+# --- 来自 .gitignore（取消注释以排除） ---
+
+# *.py[cod]
+# *$py.class
+# *.egg-info/
+# *.egg
+# env/
+# /omni
+# *.swp
+# *.swo
+# seedtts_testset/
+# .pytest_cache/
+# .coverage
+# htmlcov/
+# *.txt
+# output.wav
+# .DS_Store
+# Thumbs.db
+# .ruff_cache/
+# uv.lock
+# results/
+# .humanize/
+# .benchmark-data/
+# .tune-runs/
+# .eval-runs/
+# benchmarks/eval/*.edit.lock
+# .claude/*
+# !.claude/skills/
+
+# --- 检测到的目录（取消注释以排除） ---
+
+# tests/
+# docs/
+# examples/
+# scripts/
+
+# --- 测试文件模式（取消注释以排除） ---
+
+# *.test.*
+# *.spec.*
+# *.snap
