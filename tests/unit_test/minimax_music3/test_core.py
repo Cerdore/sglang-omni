@@ -163,6 +163,7 @@ def test_resolve_acoustic_dtype_rejects_unsupported_values(value: object) -> Non
         ("torch_sdpa", AttentionBackendEnum.TORCH_SDPA),
         ("FA", AttentionBackendEnum.FA),
         ("sage_attn", AttentionBackendEnum.SAGE_ATTN),
+        ("sage_attn_3", AttentionBackendEnum.SAGE_ATTN_3),
     ],
 )
 def test_resolve_attention_backend(

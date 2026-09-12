@@ -35,6 +35,7 @@ _ATTENTION_BACKENDS: dict[str, AttentionBackendEnum | None] = {
     "torch_sdpa": AttentionBackendEnum.TORCH_SDPA,
     "fa": AttentionBackendEnum.FA,
     "sage_attn": AttentionBackendEnum.SAGE_ATTN,
+    "sage_attn_3": AttentionBackendEnum.SAGE_ATTN_3,
 }
 
 
@@ -128,12 +129,14 @@ class Attention(nn.Module):
                 compute_dtype=compute_dtype,
             )
         if (
-            resolved_backend is AttentionBackendEnum.SAGE_ATTN
-            and self.backend.backend is not AttentionBackendEnum.SAGE_ATTN
+            resolved_backend
+            in (AttentionBackendEnum.SAGE_ATTN, AttentionBackendEnum.SAGE_ATTN_3)
+            and self.backend.backend is not resolved_backend
         ):
             raise RuntimeError(
-                "MiniMax Music 3 requested sage_attn, but SageAttention is unavailable; "
-                "install the SageAttention backend or use attention_backend=torch_sdpa"
+                "MiniMax Music 3 requested sage_attn/sage_attn_3, but the "
+                "backend is unavailable; install SageAttention or use "
+                "attention_backend=torch_sdpa"
             )
         else:
             pass

@@ -197,9 +197,11 @@ class MiniMaxMusic3AcousticDecoder:
         if self.dtype is torch.float32 and self.attention_backend in {
             "fa",
             "sage_attn",
+            "sage_attn_3",
         }:
             raise ValueError(
-                "MiniMax Music 3 fa and sage_attn backends require dtype=bfloat16"
+                "MiniMax Music 3 fa, sage_attn, and sage_attn_3 backends "
+                "require dtype=bfloat16"
             )
         else:
             pass
